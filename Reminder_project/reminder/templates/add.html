@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+
+            <li><a class="navbar-brand" href="{%  url 'home' %}">Home</a></li>
+    </div>
+    <ul class="nav navbar-nav navbar">
+        <li><a href="{% url 'add' %}">Add a reminder</a></li>
+    </ul>
+     <ul class="nav navbar-nav navbar">
+        <li><a href="{% url 'list' %}">Reminder details</a></li>
+    </ul>
+
+
+</nav>
+<center><h1>Welcome!</h1>
+<h2>Fill the below given fom to add a new reminder</h2></center>
+<form method="post">
+        {% csrf_token %}
+
+    <center>
+        <table>
+              {{ form.as_p}}
+            <input type="submit" value="Submit">
+        </table>
+    </center>
+
+</form>
+</body>
+</html>

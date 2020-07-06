@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+
+            <li><a class="navbar-brand" href="{%  url 'home' %}">Home</a></li>
+    </div>
+    <ul class="nav navbar-nav navbar">
+        <li><a href="{% url 'add' %}">Add a reminder</a></li>
+    </ul>
+     <ul class="nav navbar-nav navbar">
+        <li><a href="{% url 'list' %}">Reminder details</a></li>
+    </ul>
+
+
+</nav>
+
+
+<center>
+<h1>Reminders</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>View</th>
+    <th>Update</th>
+    </tr>
+</thead>
+<tbody>
+    {% for rem in object_list %}
+    <tr>
+    <td>{{ rem.name }}</td>
+    <td>{{ rem.date }}
+        <td>{{ rem.time }}</td>
+        <td><a href="{% url 'get_view' rem.id %}">view</a></td>
+    <td><a href="{% url 'update' rem.id %}">Update</a></td>
+
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</center>
+
